@@ -1,0 +1,7 @@
+{
+  "name": "ohlookup-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
