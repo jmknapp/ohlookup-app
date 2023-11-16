@@ -1,5 +1,9 @@
 <ion-card>
   <ion-card-content>
+    <ion-avatar *ngIf="party == 'Democratic'"><img src="assets/img/demicon.jpg"></ion-avatar>
+    <ion-avatar *ngIf="party == 'Republican'"><img src="assets/img/repicon.jpg"></ion-avatar>
+    <ion-avatar *ngIf="party == 'Green'"><img src="assets/img/grnicon.png"></ion-avatar>
+    <ion-avatar *ngIf="party == 'Libertarian'"><img src="assets/img/libicon.png"></ion-avatar>
     <p>Name: {{name}}</p>
     <p>Address: {{address}}</p>
     <p>Party affiliation: {{party}}</p>

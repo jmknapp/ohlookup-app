@@ -5,11 +5,11 @@ describe('VoterlistPage', () => {
   let component: VoterlistPage;
   let fixture: ComponentFixture<VoterlistPage>;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
     fixture = TestBed.createComponent(VoterlistPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -9,3 +9,12 @@ ion-button[color="success"]{
 ion-content{
     --background: green;
 }
+
+ion-card{
+    height: 100%;
+}
+
+.tip{
+    font-style:italic;
+    color: lightgrey;
+}

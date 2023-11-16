@@ -1,42 +1,45 @@
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <img alt="Silhouette of mountains" src="assets/img/frog.png" />
-    
-    <ion-card-header>
-      <ion-card-title color="success">OH voter search</ion-card-title>
-      <ion-card-subtitle>8,000,000 voters</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-item class="tip" fill="outline">
-        <ion-label position="floating">first name</ion-label>
-        <ion-input fill="outline"></ion-input>
-      </ion-item>
-      <ion-item class="tip" fill="outline">
-        <ion-label position="floating">last name</ion-label>
-        <ion-input fill="outline"></ion-input>
-      </ion-item>
-      <ion-item class="tip" fill="outline">
-        <ion-label position="floating">street address</ion-label>
-        <ion-input fill="outline"></ion-input>
-      </ion-item>
-      <ion-item class="tip" fill="outline">
-        <ion-label position="floating">city</ion-label>
-        <ion-input fill="outline"></ion-input>
-      </ion-item>
-      <ion-item class="tip" fill="outline">
-        <ion-label position="floating">zip</ion-label>
-        <ion-input fill="outline"></ion-input>
-      </ion-item>
-      <ion-item class="tip" fill="outline">
-        <ion-label class="tip" color="green" position="floating">birthdate yyyy-mm-dd</ion-label>
-        <ion-input fill="outline"></ion-input>
-      </ion-item>
-      <ion-button color="success" size="full">Submit</ion-button>
-      <ion-button color="success" fill="clear" >Reset</ion-button>
-    </ion-card-content>
-  </ion-card>
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">search form</ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content [fullscreen]="true">
+  <form [formGroup]="searchformData" autocomplete="off">
+    <ion-card>
+      <img alt="OHlookup logo" src="assets/img/frog.png" />
+    
+      <ion-card-header>
+        <ion-card-title color="success">OH voter search</ion-card-title>
+        <ion-card-subtitle>8,000,000 voters</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-list>
+        <ion-item>
+          <ion-input class="tip" formControlName="firstname" label="first name" labelPlacement="floating" type="text" autocomplete="off" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="tip" formControlName="lastname" label="last name" labelPlacement="floating" type="text" autocomplete="off" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="tip" formControlName="streetaddress" label="street address" labelPlacement="floating" type="text" autocomplete="off" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="tip" formControlName="city" label="city" labelPlacement="floating" type="text" autocomplete="off" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="tip" formControlName="zip" label="zip code" labelPlacement="floating" type="text" autocomplete="off" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="tip" ormControlName="birthdate" label="birthdate yyyy-mm-dd" labelPlacement="floating" type="text" autocomplete="off" clearInput></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-button type="submit" color="success" size="full" (click)="votersearch()">Lookup</ion-button>
+      <ion-button color="success" fill="clear" (click)="clearfields()">clear all</ion-button>
+    </ion-card>
+  </form>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">loader</ion-title>

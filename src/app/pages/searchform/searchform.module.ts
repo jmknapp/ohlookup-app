@@ -8,12 +8,16 @@ import { SearchformPageRoutingModule } from './searchform-routing.module';
 
 import { SearchformPage } from './searchform.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SearchformPageRoutingModule
+    SearchformPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [SearchformPage]
 })

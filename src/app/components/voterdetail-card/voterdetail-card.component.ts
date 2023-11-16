@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-voterdetail-card',
@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./voterdetail-card.component.scss'],
 })
 export class VoterdetailCardComponent  implements OnInit {
-  @Input() name: string = "";
+  @Input() name: string = "" ;
   @Input() address: string = "";
   @Input() party: string = "";
 
