@@ -10,6 +10,7 @@ export class VoterlistPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("xyzzy") ;
   }
 
 }

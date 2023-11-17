@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'loader',
     loadChildren: () => import('./pages/loader/loader.module').then( m => m.LoaderPageModule)
-  }
+  },
 ];
 
 @NgModule({
