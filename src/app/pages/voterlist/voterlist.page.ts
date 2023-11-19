@@ -11,10 +11,5 @@ export class VoterlistPage implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getRemoteData().subscribe(data => {      
-      var votersJSON = JSON.parse(JSON.stringify(data)) ;
-
-      var nhits = votersJSON.length ;
-    });
   }
 }

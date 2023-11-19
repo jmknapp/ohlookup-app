@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { VoterdetailPageRoutingModule } from './voterdetail-routing.module';
 
 import { VoterdetailPage } from './voterdetail.page';
-import { VoterdetailCardComponent } from 'src/app/components/voterdetail-card/voterdetail-card.component';
+import { VoterlistDetailComponent } from '../../components/voterlist-detail/voterlist-detail.component';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { VoterdetailCardComponent } from 'src/app/components/voterdetail-card/vo
   ],
   declarations: [
     VoterdetailPage,
-    VoterdetailCardComponent
+    VoterlistDetailComponent
   ]
 })
 export class VoterdetailPageModule {}

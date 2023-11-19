@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <ion-list color="success">
-    <ion-item color="success" *ngFor = "let voter of votersJSON" (click) = "gotodetail('http://ohlookup.com/voterdetail.php?sos_voterid='+voter['sos_voterid'])">
+    <ion-item color="success" *ngFor = "let voter of votersJSON">
       <ion-avatar slot="start">
         <img *ngIf="voter['party_affiliation'] == 'D'" src="assets/img/demicon.jpg">
         <img *ngIf="voter['party_affiliation'] == 'R'" src="assets/img/repicon.jpg">

@@ -5,15 +5,24 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private queryurl : string ;
+  private searchqueryurl : string ;
+  private detailqueryurl : string ;
 
   constructor(private httpClient: HttpClient) { } ;
 
-  setQueryUrl(url: string) {
-    this.queryurl = url ;
+  setSearchQueryUrl(url: string) {
+    this.searchqueryurl = url ;
   }
 
-  getRemoteData() {
-    return this.httpClient.get(this.queryurl) ;
+  setDetailQueryUrl(url: string) {
+    this.detailqueryurl = url ;
+  }
+
+  getSearchQueryData() {
+    return this.httpClient.get(this.searchqueryurl) ;
+  }
+
+  getDetailQueryData() {
+    return this.httpClient.get(this.detailqueryurl) ;
   }
 }

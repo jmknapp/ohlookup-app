@@ -29,9 +29,9 @@ export class SearchformPage implements OnInit {
   }
 
   votersearch(){
-    var url = "http://ohlookup.com/ohlookup-app.php?birthdate=1955-02-21&firstname=joseph" ;
+    var url = "http://ohlookup.com/ohlookup-app.php?birthdate=1955-02-21&firstname=jo*" ;
 
-    this.dataService.setQueryUrl(url) ;
+    this.dataService.setSearchQueryUrl(url) ;
     this.router.navigate(['voterlist']) ;
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-voterdetail',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoterdetailPage implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
