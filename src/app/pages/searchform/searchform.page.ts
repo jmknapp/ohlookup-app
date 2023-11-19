@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tick } from '@angular/core/testing';
 import { FormControl, FormGroup } from '@angular/forms';
 //import { ActivatedRoute, Router } from '@angular/router';
 import { Router } from '@angular/router';
@@ -28,20 +29,13 @@ export class SearchformPage implements OnInit {
   }
 
   votersearch(){
-    //this.router.navigate(['voterlist'])
-  
-    console.log(this.searchformData.value);
+    var url = "http://ohlookup.com/ohlookup-app.php?birthdate=1955-02-21&firstname=joseph" ;
 
-    this.dataService.getRemoteData().subscribe(data => {
-      
-      var jsonobject = JSON.parse(JSON.stringify(data)) ;
-
-      console.log(jsonobject[1]) ;
-    });
+    this.dataService.setQueryUrl(url) ;
+    this.router.navigate(['voterlist']) ;
   }
 
   clearfields(){
-    //this.router.navigate(['searchform'])
     this.searchformData.reset()
   }
 }

@@ -5,14 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  
-  private searchformData = [] ;
+  private queryurl : string ;
 
   constructor(private httpClient: HttpClient) { } ;
 
+  setQueryUrl(url: string) {
+    this.queryurl = url ;
+  }
+
   getRemoteData() {
-    return this.httpClient.get(
-      "http://ohlookup.com/ohlookup-app.php?firstname=alice&lastname=carroll"
-    )
+    return this.httpClient.get(this.queryurl) ;
   }
 }

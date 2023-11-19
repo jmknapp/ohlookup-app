@@ -8,6 +8,8 @@ import { VoterlistPageRoutingModule } from './voterlist-routing.module';
 
 import { VoterlistPage } from './voterlist.page';
 
+import { VoterlistEntryComponent } from '../../components/voterlist-entry/voterlist-entry.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,9 @@ import { VoterlistPage } from './voterlist.page';
     IonicModule,
     VoterlistPageRoutingModule
   ],
-  declarations: [VoterlistPage]
+  declarations: [
+    VoterlistPage,
+    VoterlistEntryComponent
+  ]
 })
 export class VoterlistPageModule {}
