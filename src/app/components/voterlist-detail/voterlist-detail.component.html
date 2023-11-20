@@ -1,15 +1,38 @@
 <ion-content [fullscreen]="true">
   <ion-list color="success">
     <ion-item color="success" *ngFor = "let voter of votersJSON">
-      <ion-avatar slot="start">
-        <img *ngIf="voter['party_affiliation'] == 'D'" src="assets/img/demicon.jpg">
-        <img *ngIf="voter['party_affiliation'] == 'R'" src="assets/img/repicon.jpg">
-        <img *ngIf="voter['party_affiliation'] == 'L'" src="assets/img/libicon.jpg">
-        <img *ngIf="voter['party_affiliation'] == 'G'" src="assets/img/grnicon.jpg">
-        <img *ngIf="voter['party_affiliation'] == ''" src="assets/img/nonicon.jpg">
-        
-      </ion-avatar>
-      <ion-label>{{voter["first_name"]}} {{voter["last_name"]}}<br>{{voter['age']}}, {{voter['residential_city']}}</ion-label>
+      <div>
+        <img width=20% *ngIf="voter['party_affiliation'] == 'D'" src="assets/img/demicon.jpg" style="float: left; 
+        margin: 5px;">
+        <img width=20% *ngIf="voter['party_affiliation'] == 'R'" src="assets/img/repicon.jpg" style="float: left; 
+        margin: 5px;">
+        <img width=20% *ngIf="voter['party_affiliation'] == 'L'" src="assets/img/libicon.jpg" style="float: left; 
+        margin: 5px;">
+        <img width=20% *ngIf="voter['party_affiliation'] == 'G'" src="assets/img/grnicon.jpg" style="float: left; 
+        margin: 5px;">
+        <img width=20% *ngIf="voter['party_affiliation'] == ''" src="assets/img/nonicon.jpg" style="float: left; 
+        margin: 5px;">
+  
+        <p>
+        {{voter["first_name"]}} {{voter["middle_name"]}} {{voter["last_name"]}} {{voter["suffix"]}}<br>
+        {{voter["residential_address1"]}}<br>
+        <div *ngIf="voter['residential_secondary_addr'] != ''">{{voter["residential_secondary_addr"]}}</div>
+        {{voter["residential_city"]}}, OH {{voter["residential_zip"]}}<br>
+      </div>
+    </ion-item>
+    <ion-item *ngFor = "let voter of votersJSON">
+      <div style="float: left; margin: 5%;">
+        <p><b>state voter ID:</b> {{voter["sos_voterid"]}}</p>
+        <p><b>age:</b> {{voter["age"]}}  (date of birth: {{voter["date_of_birth"]}})<br></p>
+        <p><b>registration date:</b> {{voter["registration_date"]}}<br></p>
+        <p><b>voter status:</b> {{voter["voter_status"]}}<br></p>
+        <p><b>last vote:</b> {{voter["lastvote"]}}<br></p>
+        <p><b>county:</b> {{voter["county_name"]}}</p>
+        <p><b>precinct:</b> {{voter["precinct_name"]}}</p>
+        <p><b>districts:</b><br>US House: {{voter["congressional_district"]}}<br>OH House: {{voter["state_representative_district"]}}<br>OH Senate: {{voter["state_senate_district"]}}</p>
+        <p><b>voting history:</b><br>
+        <div [innerHTML]="voter['voterhistory']"></div>
+      </div>
     </ion-item>
   </ion-list>
   <ion-header collapse="condense">

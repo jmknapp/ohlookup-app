@@ -29,7 +29,22 @@ export class SearchformPage implements OnInit {
   }
 
   votersearch(){
-    var url = "http://ohlookup.com/ohlookup-app.php?birthdate=1955-02-21&firstname=jo*" ;
+    var url = "http://ohlookup.com/ohlookup-app.php?" ;
+
+    if (this.searchformData.value.firstname != null)
+      url = url + "firstname=" + this.searchformData.value.firstname ;
+    if (this.searchformData.value.lastname != null)
+      url = url + "&lastname=" + this.searchformData.value.lastname ;
+    if (this.searchformData.value.streetaddress != null)
+      url = url + "&streetaddress=" + this.searchformData.value.streetaddress ;
+    if (this.searchformData.value.city != null)
+      url = url + "&city=" + this.searchformData.value.city ;
+    if (this.searchformData.value.zip != null)
+      url = url + "&zip=" + this.searchformData.value.zip ;
+    if (this.searchformData.value.birthdate != null)
+      url = url + "&birthdate=" + this.searchformData.value.birthdate ;
+
+    console.log(url) ;
 
     this.dataService.setSearchQueryUrl(url) ;
     this.router.navigate(['voterlist']) ;

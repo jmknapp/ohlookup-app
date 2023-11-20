@@ -17,6 +17,8 @@ export class VoterlistEntryComponent  implements OnInit {
     this.dataService.getSearchQueryData().subscribe(data => {
       this.votersJSON = JSON.parse(JSON.stringify(data)) ;
     });
+
+    //this.votersJSON = JSON.parse('[{"sos_voterid":"OH0017034888","first_name":"LARSON E.","last_name":"WHIPSNADE","date_of_birth":"1979-02-12","age":"44","residential_city":"WESTERVILLE","party_affiliation":"D","voter_status":"ACTIVE"}]') ;
    }
 
   gotodetail(url: string) {
