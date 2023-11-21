@@ -1,13 +1,13 @@
 <ion-content [fullscreen]="true">
   <ion-list color="success">
+    <ion-item>{{nmatches}} matches</ion-item>
     <ion-item color="success" *ngFor = "let voter of votersJSON" (click) = "gotodetail('http://ohlookup.com/voterdetail.php?sos_voterid='+voter['sos_voterid'])">
       <ion-avatar slot="start">
         <img *ngIf="voter['party_affiliation'] == 'D'" src="assets/img/demicon.jpg">
         <img *ngIf="voter['party_affiliation'] == 'R'" src="assets/img/repicon.jpg">
-        <img *ngIf="voter['party_affiliation'] == 'L'" src="assets/img/libicon.jpg">
+        <img *ngIf="voter['party_affiliation'] == 'L'" src="assets/img/libicon.png">
         <img *ngIf="voter['party_affiliation'] == 'G'" src="assets/img/grnicon.jpg">
         <img *ngIf="voter['party_affiliation'] == ''" src="assets/img/nonicon.jpg">
-        
       </ion-avatar>
       <ion-label>{{voter["first_name"]}} {{voter["last_name"]}}<br>{{voter['age']}}, {{voter['residential_city']}}</ion-label>
     </ion-item>

@@ -44,8 +44,6 @@ export class SearchformPage implements OnInit {
     if (this.searchformData.value.birthdate != null)
       url = url + "&birthdate=" + this.searchformData.value.birthdate ;
 
-    console.log(url) ;
-
     this.dataService.setSearchQueryUrl(url) ;
     this.router.navigate(['voterlist']) ;
   }
