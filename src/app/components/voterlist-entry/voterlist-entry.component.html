@@ -1,6 +1,9 @@
 <ion-content [fullscreen]="true">
   <ion-list color="success">
-    <ion-item>{{nmatches}} matches</ion-item>
+    <ion-item *ngIf="nmatches != 1000 && nmatches != null && nmatches != 0">{{nmatches}} matches, select for details</ion-item>
+    <ion-item *ngIf="nmatches == 1000">displaying first 1000 matches, select for details</ion-item>
+    <ion-item *ngIf="nmatches == null">searching...</ion-item>
+    <ion-item *ngIf="nmatches == 0">0 matches</ion-item>
     <ion-item color="success" *ngFor = "let voter of votersJSON" (click) = "gotodetail('http://ohlookup.com/voterdetail.php?sos_voterid='+voter['sos_voterid'])">
       <ion-avatar slot="start">
         <img *ngIf="voter['party_affiliation'] == 'D'" src="assets/img/demicon.jpg">
@@ -9,7 +12,9 @@
         <img *ngIf="voter['party_affiliation'] == 'G'" src="assets/img/grnicon.jpg">
         <img *ngIf="voter['party_affiliation'] == ''" src="assets/img/nonicon.jpg">
       </ion-avatar>
-      <ion-label>{{voter["first_name"]}} {{voter["last_name"]}}<br>{{voter['age']}}, {{voter['residential_city']}}</ion-label>
+      <ion-label>{{voter["first_name"]}} {{voter["middle_name"]}} {{voter["last_name"]}}&nbsp;&nbsp;&nbsp; age: {{voter['age']}}<br>{{voter['residential_address1']}}<br>{{voter['residential_city']}} ({{voter['county_name']}})
+        <span *ngIf="voter['voter_status'] == 'CONFIRMATION'">&nbsp;<span style="white-space:nowrap" class="inactivevoter"><b>&nbsp;CONFIRMATION&nbsp;</b></span></span>
+      </ion-label> 
     </ion-item>
   </ion-list>
   <ion-header collapse="condense">

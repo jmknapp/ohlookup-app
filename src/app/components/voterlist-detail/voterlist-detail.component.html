@@ -12,8 +12,7 @@
         margin: 5px;">
         <img width=20% *ngIf="voter['party_affiliation'] == ''" src="assets/img/nonicon.jpg" style="float: left; 
         margin: 5px;">
-  
-        <p>
+
         {{voter["first_name"]}} {{voter["middle_name"]}} {{voter["last_name"]}} {{voter["suffix"]}}<br>
         {{voter["residential_address1"]}}<br>
         <div *ngIf="voter['residential_secondary_addr'] != ''">{{voter["residential_secondary_addr"]}}</div>
@@ -23,15 +22,25 @@
     <ion-item *ngFor = "let voter of votersJSON">
       <div style="float: left; margin: 5%;">
         <p><b>state voter ID:</b> {{voter["sos_voterid"]}}</p>
-        <p><b>age:</b> {{voter["age"]}}  (date of birth: {{voter["date_of_birth"]}})<br></p>
-        <p><b>registration date:</b> {{voter["registration_date"]}}<br></p>
-        <p><b>voter status:</b> {{voter["voter_status"]}}<br></p>
-        <p><b>last vote:</b> {{voter["lastvote"]}}<br></p>
+        <div *ngIf="voter['party_affiliation'] == 'D'"><p><b>party affiliation:</b> Democratic</p></div>
+        <div *ngIf="voter['party_affiliation'] == 'R'"><p><b>party affiliation:</b> Republican</p></div>
+        <div *ngIf="voter['party_affiliation'] == 'L'"><p><b>party affiliation:</b> Libertarian</p></div>
+        <div *ngIf="voter['party_affiliation'] == 'G'"><p><b>party affiliation:</b> Green</p></div>
+        <div *ngIf="voter['party_affiliation'] == ''"><p><b>party affiliation:</b> none</p></div>
+        <p><b>age:</b> {{voter["age"]}}  (dob:<span></span> {{voter["date_of_birth"] | date: 'longDate'}})<br></p>
+        <p><b>registration date:</b><span>
+          {{voter["registration_date"] | date: 'longDate'}}
+        </span><br></p>
+        <div *ngIf="voter['voter_status'] == 'ACTIVE'"><p><b>voter status:</b>&nbsp;<span class="activevoter"><b>&nbsp;ACTIVE&nbsp;</b></span><br></p></div>
+        <div *ngIf="voter['voter_status'] == 'CONFIRMATION'"><p><b>voter status:</b>&nbsp;<span class="inactivevoter"><b>&nbsp;CONFIRMATION&nbsp;</b></span><br></p></div>
+        <p><b>last vote:</b> {{voter["lastvote"] | date: 'longDate'}}<br></p>
         <p><b>county:</b> {{voter["county_name"]}}</p>
         <p><b>precinct:</b> {{voter["precinct_name"]}}</p>
-        <p><b>districts:</b><br>US House: {{voter["congressional_district"]}}<br>OH House: {{voter["state_representative_district"]}}<br>OH Senate: {{voter["state_senate_district"]}}</p>
+        <p><b>districts:</b><br>&nbsp;&nbsp;US House: {{voter["congressional_district"]}}<br>&nbsp;&nbsp;OH House: {{voter["state_representative_district"]}}<br>&nbsp;&nbsp;OH Senate: {{voter["state_senate_district"]}}</p>
         <p><b>voting history:</b><br>
-        <div [innerHTML]="voter['voterhistory']"></div>
+        <ion-button fill="solid" (click)="showvoting()" *ngIf="showMe == false">SHOW</ion-button>
+        <div [innerHTML]="voter['voterhistory']" *ngIf="showMe"></div>
+        <div ></div>
       </div>
     </ion-item>
   </ion-list>

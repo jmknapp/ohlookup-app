@@ -13,14 +13,18 @@ export class VoterlistEntryComponent  implements OnInit {
   user: any;
   votersJSON: any;
   nmatches: any;
+  hideMe: any;
 
   constructor(private dataService: DataService, private router: Router, private loadingController: LoadingController) {
-    this.nmatches = 0 ;
-    this.presentLoading() ;
+    this.nmatches = null ;
+    //this.presentLoading() ;
     this.dataService.getSearchQueryData().subscribe(data => {
-      this.votersJSON = JSON.parse(JSON.stringify(data)) ;
+    this.votersJSON = JSON.parse(JSON.stringify(data)) ;
+    if (this.votersJSON != null) 
       this.nmatches=this.votersJSON.length ;
-      this.loadingController.dismiss();
+    else
+      this.nmatches = 0 ;
+    //this.loadingController.dismiss();
     });
 
     //this.votersJSON = JSON.parse('[{"sos_voterid":"OH0017034888","first_name":"LARSON E.","last_name":"WHIPSNADE","date_of_birth":"1979-02-12","age":"44","residential_city":"WESTERVILLE","party_affiliation":"D","voter_status":"ACTIVE"}]') ;
@@ -39,5 +43,4 @@ export class VoterlistEntryComponent  implements OnInit {
     });
     return await loading.present();
   }
-
 }

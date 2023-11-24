@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>OH lookup help</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">help</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list id="OHlookup list">
+    <ion-note>
+      <p><b>Tips for using the Ohio voter lookup tool:</b></p>
+      <ul>
+        <li>To find a given voter start by putting in just the last and first name. In many cases the name will be uncommon enough that not very many matches will be returned & you can just scan down the list for specific identifying info like city and/or age.</li><br>
+        <li>Note that people will sometimes be registered under a nickname (e.g., Liz instead of Elizabeth) so trying different variations might be necessary. Wildcard characters * and ? may be used, where * matches any number of arbitrary characters, and ? matches any one character. E.g., *liz* will match Elizabeth, Liz, Eliza, etc. The search isn't case sensitive.</li><br>
+        <li>A possible pitfall is that on occasion registrations of people with compound first names or compound last names won't be consistent in whether part of the compound name might be registered as a middle name. So if the voter name is Jane Smith-Jones they might be registered as Jane Jones with Smith as the middle name. So if there's no match, try Jane Smith and Jane Jones. Usually the compound name works though.</li><br>
+        <li>If too many results are returned (like with jane smith) then try adding the address. The match must be exactly what's in the secretary of state voter file, so 123 Main Street will not match 123 Main St and 123 20th St will not match 123 Twentieth St. It's best to use the * wildcard, e.g. 123 Main*. You could even try just searching for the house number, e.g., 123 *. Alternatively, the results can be narrowed by entering the city or any of the other fields.</li><br>
+        <li>In general, leave out punctuation, like periods, hyphens, and commas.</li><br>
+        <li>In the voter details page the voter grid shows the elections the person has voted by year and month in since they were registered (voter histories don't go before 2000). A red square means a Republican primary ballot, blue for Democratic. A green square is a ballot in a general election.</li><br>
+      </ul>
+      Joe Knapp  jmknapp&#64;gmail.com</ion-note>
+  </ion-list>
+</ion-content>

@@ -13,13 +13,24 @@ export class VoterlistDetailComponent  implements OnInit {
 
   user: any;
   votersJSON: any;
+  showMe: any;
 
   constructor(private dataService: DataService, private router: Router) {
     this.dataService.getDetailQueryData().subscribe(data => {
       this.votersJSON = JSON.parse(JSON.stringify(data)) ;
     });
+
+    this.showMe = false ;
    }
 
   ngOnInit() {}
+
+  showvoting() {
+    this.showMe = true ;
+  }
+
+  hidevoting() {
+    this.showMe = false ;
+  }
 
 }

@@ -51,4 +51,8 @@ export class SearchformPage implements OnInit {
   clearfields(){
     this.searchformData.reset()
   }
+
+  helpfile(){
+    this.router.navigate(['help']) ;
+  }
 }
