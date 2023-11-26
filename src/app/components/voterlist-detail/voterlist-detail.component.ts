@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class VoterlistDetailComponent  implements OnInit {
   votersJSON: any;
   showMe: any;
 
-  constructor(private dataService: DataService, private router: Router) {
+  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) {
     this.dataService.getDetailQueryData().subscribe(data => {
       this.votersJSON = JSON.parse(JSON.stringify(data)) ;
     });
@@ -32,5 +32,4 @@ export class VoterlistDetailComponent  implements OnInit {
   hidevoting() {
     this.showMe = false ;
   }
-
 }
